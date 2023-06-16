@@ -1,0 +1,14 @@
+/**
+ * @design by Umar Waqas
+ */
+
+class Response {
+  //boolean,string,obj
+  constructor(error, message, data) {
+      this.error = error;
+      this.message = message;
+      this.response = data;
+  }
+}
+
+module.exports = Response;
