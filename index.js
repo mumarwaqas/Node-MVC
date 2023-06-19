@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * @design by Umar Waqas
  */
@@ -48,14 +49,44 @@ app.use('/data', csrf_mid.csrfProtection, require('./routes/data/dataRouter'));
 //catch all error
 app.use(error_mid);
 const port = process.env.PORT || 2828;
+=======
+const express = require('express');
+const app = express();
+
+const router = express.Router();
+
+
+>>>>>>> f704c9a94942c350d0b0154d822faf89bb0e1714
 
 // const {connection}    = require('./config/database');
 const {PORT}          = require('./config/index');
 const {HOSTNAME}      = require('./config/index');
 
+<<<<<<< HEAD
 app.listen(PORT, () => console.log(`Server running at ${HOSTNAME}:${PORT}/`))
 
 //app.listen(port, () => console.log(`running at http://localhost:${port} `))
+=======
+app.listen(PORT, console.log(`Server running at ${HOSTNAME}:${PORT}/`))
+
+
+const dashboardController    = require('./controllers/dashboardController');
+
+
+
+//tell express to serve the content of public dir
+app.use(express.static('public'));
+app.set("view engine", "ejs");
+
+
+//dashboard app route
+app.get("/", function(req, res) {
+    res.send("Home");
+});
+app.get('/dashboard', dashboardController.index);
+
+  
+>>>>>>> f704c9a94942c350d0b0154d822faf89bb0e1714
 
 
   
