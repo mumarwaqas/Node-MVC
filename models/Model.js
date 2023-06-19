@@ -4,11 +4,7 @@
 
 require('dotenv').config();
 
-<<<<<<< HEAD
 const pool = require('../config/database')
-=======
-const pool = require('./config/database')
->>>>>>> f704c9a94942c350d0b0154d822faf89bb0e1714
 const Define = require('../utils/Define');
 
 /**
