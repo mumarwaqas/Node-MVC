@@ -12,7 +12,6 @@ const AuthController = {
     login: async (req, res) => {
         res.render("login.ejs", { title: "Dashboard", description: "Dashboard" });
     },//login
-
 }
 
 module.exports = AuthController

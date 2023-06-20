@@ -27,24 +27,27 @@ app.use(csrf_mid.csrfInit);
 app.use(csrf_mid.csrfToken);
 
 //tell express to serve the content of public dir
-// app.use(express.static('public'));
-// app.set("view engine", "ejs");
+app.use(express.static('public'));
+app.set("view engine", "ejs");
 
 //rate limiter
 
-/**
- * @routers
- */
-app.get('/', (req, res) => {
-    res.send('home')
-})
+// /**
+//  * @routers
+//  */
+// app.get('/', (req, res) => {
+//     res.send('home')
+// })
 
-//description use for all type DB tables @author milon27
+//description use for all type DB tables @author Umar Waqas
 app.use('/db', require('./routes/db/dbRouter'));
-//@description auth (signup,login,logout,isLoggedIn) @author milon27
+//@description auth (signup,login,logout,isLoggedIn) @author Umar Waqas
 app.use('/auth', require('./routes/auth/authRouter'));
-//@description use for all type of CRUD operation @author milon27 
+//@description use for all type of CRUD operation @author Umar Waqas 
 app.use('/data', csrf_mid.csrfProtection, require('./routes/data/dataRouter'));
+
+//@description use for all type of CRUD operation @author Umar Waqas 
+app.get('/dashboard', require('./routes/dashboard/dashboardRouter'));
 
 //catch all error
 app.use(error_mid);
