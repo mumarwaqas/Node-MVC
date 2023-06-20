@@ -45,17 +45,22 @@ pool.getConnection((err) => {
 
 app.get('/', (req, res) => {
 
-    pool.query("SELECT * FROM employees", (err, results, fields) => {
+    pool.query("SELECT * FROM users", (err, results, fields) => {
         // rows fetch
         //console.log(results);
-        if (err) {
+        if (err) 
+        {
             let response = new Response(500, err.message, err);
             res.send(response);
-        } else {
+        } 
+        else 
+        {
             if (results && results.length > 0) {
                 let response = new Response(false, " Data list get Successfully", results);
                 res.status(200).send(response);
-            } else {
+            } 
+            else 
+            {
                 let response = new Response(true, " Data list NOT FOUND", []);
                 res.status(200).send(response);
             }
