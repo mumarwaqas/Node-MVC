@@ -3,14 +3,16 @@
  */
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors')
-const cookieparser = require('cookie-parser')
-const ratelimiter = require('express-rate-limit')
+const cors = require('cors');
+const cookieparser = require('cookie-parser');
+const ratelimiter = require('express-rate-limit');
 const helmet = require('helmet');
 const csrf_mid = require('./routes/middleware/csrf_mid');
 const error_mid = require('./routes/middleware/error_mid');
 
 const app = express();
+const indexRoute = require('./routes/index');
+app.use(indexRoute);
 
 /**
  * @middleware
@@ -20,7 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieparser());
 //enable cros 
-app.use(cors({ origin: ["http://localhost:3000"], credentials: true }))
+app.use(cors({ origin: ["http://localhost:3000"], credentials: true }));
 app.use(helmet());
 //csrf
 app.use(csrf_mid.csrfInit);

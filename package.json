@@ -10,10 +10,9 @@
     "npm-install": "npm install",
     "npm-update": "npm update"
   },
-  "author": "",
+  "author": "Umar Waqas",
   "license": "ISC",
   "dependencies": {
-    "admin-lte": "3.2",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.9",
     "cookie-parser": "^1.4.5",
